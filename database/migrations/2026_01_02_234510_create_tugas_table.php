@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('tugas', function (Blueprint $table) {
             $table->id();
+            $table->string('judul');
+            $table->text('deskripsi')->nullable();
+            $table->date('tanggal_deadline')->nullable();
+            $table->foreignId('mahasiswa_id')->constrained('mahasiswa')->onDelete('cascade');
+            $table->foreignId('kursus_id')->constrained('kursus')->onDelete('cascade');
             $table->timestamps();
         });
     }
