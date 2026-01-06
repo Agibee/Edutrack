@@ -11,7 +11,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        $middleware->alias([
+            'sudah_login' => \App\Http\Middleware\SudahLogin::class,
+            'belum_login' => \App\Http\Middleware\BelumLogin::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
