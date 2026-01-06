@@ -10,9 +10,9 @@
         @csrf
 
         <div class="mb-4">
-            <label for="nama" class="block text-sm font-medium text-gray-700">Nama Kursus</label>
-            <input type="text" name="nama" id="nama" value="{{ old('nama') }}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
-            @error('nama')
+            <label for="nama_kursus" class="block text-sm font-medium text-gray-700">Nama Kursus</label>
+            <input type="text" name="nama_kursus" id="nama_kursus" value="{{ old('nama_kursus') }}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
+            @error('nama_kursus')
                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
             @enderror
         </div>
@@ -21,14 +21,6 @@
             <label for="deskripsi" class="block text-sm font-medium text-gray-700">Deskripsi</label>
             <textarea name="deskripsi" id="deskripsi" rows="3" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">{{ old('deskripsi') }}</textarea>
             @error('deskripsi')
-                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-            @enderror
-        </div>
-
-        <div class="mb-4">
-            <label for="durasi" class="block text-sm font-medium text-gray-700">Durasi</label>
-            <input type="text" name="durasi" id="durasi" value="{{ old('durasi') }}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-            @error('durasi')
                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
             @enderror
         </div>

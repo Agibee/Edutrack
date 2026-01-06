@@ -14,17 +14,12 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
             <label class="block text-sm font-medium text-gray-700">Nama Kursus</label>
-            <p class="mt-1 text-sm text-gray-900">{{ $kursus->nama }}</p>
+            <p class="mt-1 text-sm text-gray-900">{{ $kursus->nama_kursus }}</p>
         </div>
 
         <div>
             <label class="block text-sm font-medium text-gray-700">Deskripsi</label>
             <p class="mt-1 text-sm text-gray-900">{{ $kursus->deskripsi ?: '-' }}</p>
-        </div>
-
-        <div>
-            <label class="block text-sm font-medium text-gray-700">Durasi</label>
-            <p class="mt-1 text-sm text-gray-900">{{ $kursus->durasi ?: '-' }}</p>
         </div>
     </div>
 

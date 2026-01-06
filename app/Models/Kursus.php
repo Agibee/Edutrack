@@ -19,13 +19,5 @@ class Kursus extends Model
     {
         return $this->belongsToMany(Mahasiswa::class, 'enrollments', 'kursus_id', 'mahasiswa_id');
     }
-    function tugas()
-    {
-        return $this->hasMany(Tugas::class, 'kursus_id');
-    }
-    function laporanNilai()
-    {
-        return $this->hasMany(LaporanNilai::class, 'kursus_id');
-    }
     
 }

@@ -28,9 +28,8 @@ class KursusController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'nama' => 'required|unique:kursus',
+            'nama_kursus' => 'required|unique:kursus',
             'deskripsi' => 'nullable',
-            'durasi' => 'nullable',
         ]);     
         Kursus::create($data);
         return redirect()->route('kursus.index')->with('success','Kursus berhasil ditambahkan');
@@ -43,9 +42,8 @@ class KursusController extends Controller
     public function update(Request $request, Kursus $kursus)
     {
         $data = $request->validate([
-            'nama' => 'required|unique:kursus,nama,'.$kursus->id,
+            'nama_kursus' => 'required|unique:kursus,nama_kursus,'.$kursus->id,
             'deskripsi' => 'nullable',
-            'durasi' => 'nullable',
         ]);     
         $kursus->update($data);
         return redirect()->route('kursus.index')->with('success','Kursus berhasil diupdate');
