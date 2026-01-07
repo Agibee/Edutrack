@@ -1,4 +1,4 @@
-@extends('layouts.index')
+n@extends('layouts.index')
 
 @section('title', 'Detail Kursus')
 

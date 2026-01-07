@@ -19,5 +19,9 @@ class Kursus extends Model
     {
         return $this->belongsToMany(Mahasiswa::class, 'enrollments', 'kursus_id', 'mahasiswa_id');
     }
+      public function tugas()
+    {
+        return $this->hasMany(Tugas::class);
+    }
     
 }

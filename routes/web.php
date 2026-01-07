@@ -6,6 +6,7 @@ use App\Http\Middleware;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KursusController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\TugasController;
 
 // Auth Routes
 Route::middleware(['belum_login'])->group(function () {
@@ -34,6 +35,14 @@ Route::middleware('sudah_login')->group(function () {
     Route::get('kursus/{kursus}/edit', [KursusController::class, 'edit'])->name('kursus.edit');
     Route::put('kursus/{kursus}', [KursusController::class, 'update'])->name('kursus.update');
     Route::delete('kursus/{kursus}', [KursusController::class, 'destroy'])->name('kursus.destroy');
+
+    Route::get('tugas', [TugasController::class, 'index'])->name('tugas.index');
+    Route::get('tugas/create', [TugasController::class, 'create'])->name('tugas.create');
+    Route::post('tugas/store', [TugasController::class, 'store'])->name('tugas.store');
+    Route::get('tugas/{tugas}', [TugasController::class, 'show'])->name('tugas.show');
+    Route::get('tugas/{tugas}/edit', [TugasController::class, 'edit'])->name('tugas.edit');
+    Route::put('tugas/{tugas}', [TugasController::class, 'update'])->name('tugas.update');
+    Route::delete('tugas/{tugas}', [TugasController::class, 'destroy'])->name('tugas.destroy');
 
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 });
