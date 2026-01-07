@@ -21,10 +21,10 @@
         <table class="min-w-full bg-white">
             <thead class="bg-blue-500">
                 <tr>
-                    <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">No</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Nama Kursus</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Deskripsi</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium  uppercase tracking-wider">Aksi</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">No</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Nama Kursus</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Deskripsi</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium  text-white uppercase tracking-wider">Aksi</th>
                 </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">

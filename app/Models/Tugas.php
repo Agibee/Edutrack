@@ -15,7 +15,7 @@ class Tugas extends Model
         'mahasiswa_id',
         'kursus_id',
         'judul',
-        'file_path',
+        'file',
         'nilai',
         'komentar'
     ];

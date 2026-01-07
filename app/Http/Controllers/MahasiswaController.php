@@ -14,7 +14,10 @@ class MahasiswaController extends Controller
         $mahasiswa = Mahasiswa::all();
         return view('mahasiswa.index', compact('mahasiswa'));
     }
-
+    public function show(Mahasiswa $mahasiswa)
+    { 
+        return view('mahasiswa.show',compact('mahasiswa'));
+    }
     // Form tambah mahasiswa
     public function create()
     {

@@ -21,14 +21,14 @@
         <table class="min-w-full bg-white">
             <thead class="bg-blue-500">
                 <tr >
-                    <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">No</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">NIM</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Nama</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Email</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Alamat</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Tanggal Lahir</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">No Telepon</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Aksi</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium uppercase text-white tracking-wider">No</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium uppercase text-white tracking-wider">NIM</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium uppercase text-white tracking-wider">Nama</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium uppercase text-white tracking-wider">Email</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium uppercase text-white tracking-wider">Alamat</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium uppercase text-white tracking-wider">Tanggal Lahir</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium uppercase text-white tracking-wider">No Telepon</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium uppercase text-white tracking-wider">Aksi</th>
                 </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">

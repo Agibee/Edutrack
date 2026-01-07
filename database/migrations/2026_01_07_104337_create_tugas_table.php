@@ -13,7 +13,7 @@ return new class extends Migration
             $table->foreignId('mahasiswa_id')->constrained('mahasiswa')->cascadeOnDelete();
             $table->foreignId('kursus_id')->constrained('kursus')->cascadeOnDelete();
             $table->string('judul');
-            $table->string('file_path');
+            $table->string('file');
             $table->integer('nilai')->nullable();
             $table->text('komentar')->nullable();
             $table->timestamps();
