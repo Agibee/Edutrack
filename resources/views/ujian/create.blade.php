@@ -34,8 +34,15 @@
         </div>
 
         <div class="mb-3">
-            <label>Nilai</label>
-            <input type="number" name="nilai" value="{{ old('nilai') }}" class="w-full border p-2 rounded" min="0" max="100">
+            <label>Nilai (Array)</label>
+            <input type="number" name="nilai[]" value="{{ old('nilai.0') }}" class="w-full border p-2 rounded mb-2" min="0" max="100" placeholder="Nilai 1">
+            <input type="number" name="nilai[]" value="{{ old('nilai.1') }}" class="w-full border p-2 rounded" min="0" max="100" placeholder="Nilai 2">
+        </div>
+
+        <div class="mb-3">
+            <label>Komentar (Array)</label>
+            <input type="text" name="komentar[]" value="{{ old('komentar.0') }}" class="w-full border p-2 rounded mb-2" placeholder="Komentar 1">
+            <input type="text" name="komentar[]" value="{{ old('komentar.1') }}" class="w-full border p-2 rounded" placeholder="Komentar 2">
         </div>
 
         <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Simpan</button>

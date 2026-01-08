@@ -15,7 +15,13 @@ class Ujian extends Model
         'mahasiswa_id',
         'kursus_id',
         'nama_ujian',
-        'nilai'
+        'nilai',
+        'komentar'
+    ];
+
+    protected $casts = [
+        'nilai' => 'array',
+        'komentar' => 'array',
     ];
 
     public function mahasiswa()

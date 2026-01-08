@@ -16,7 +16,8 @@ return new class extends Migration
         $table->foreignId('mahasiswa_id')->constrained('mahasiswa')->cascadeOnDelete();
         $table->foreignId('kursus_id')->constrained('kursus')->cascadeOnDelete();
         $table->string('nama_ujian'); 
-        $table->integer('nilai')->nullable();
+        $table->json('nilai')->nullable();
+        $table->json('komentar')->nullable();
         $table->timestamps();
 });
 

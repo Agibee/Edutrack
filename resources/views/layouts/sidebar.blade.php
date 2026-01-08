@@ -25,9 +25,9 @@
             <i class="fas fa-upload mr-2"></i> Nilai Ujian
         </a>
 
-        {{-- <a href="{{ route('laporan.index') }}" class="block px-4 py-2 rounded text-white hover:bg-gray-300 hover:text-slate-900">
-            <i class="fas fa-chart-bar mr-2"></i> Laporan Nilai
-        </a> --}}
+        <a href="{{ route('laporan.performa_mahasiswa') }}" class="block px-4 py-2 rounded text-white hover:bg-gray-300 hover:text-slate-900">
+            <i class="fas fa-chart-bar mr-2"></i>Peforma Mahasiswa
+        </a>
     </nav>
 
     <div class="mt-auto">

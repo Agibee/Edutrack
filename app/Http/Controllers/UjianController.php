@@ -33,7 +33,10 @@ class UjianController extends Controller
             'mahasiswa_id' => 'required',
             'kursus_id' => 'required',
             'nama_ujian' => 'required|string',
-            'nilai' => 'nullable|integer|min:0|max:100'
+            'nilai' => 'nullable|array',
+            'nilai.*' => 'integer|min:0|max:100',
+            'komentar' => 'nullable|array',
+            'komentar.*' => 'string'
         ]);
 
         Ujian::create($request->all());
@@ -54,7 +57,10 @@ class UjianController extends Controller
     {
         $request->validate([
             'nama_ujian' => 'required|string',
-            'nilai' => 'nullable|integer|min:0|max:100'
+            'nilai' => 'nullable|array',
+            'nilai.*' => 'integer|min:0|max:100',
+            'komentar' => 'nullable|array',
+            'komentar.*' => 'string'
         ]);
 
         $ujian->update($request->all());

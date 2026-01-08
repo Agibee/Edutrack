@@ -35,8 +35,25 @@
         </div>
 
         <div class="mb-3">
-            <label>Nilai</label>
-            <input type="number" name="nilai" value="{{ old('nilai', $ujian->nilai) }}" class="w-full border p-2 rounded" min="0" max="100">
+            <label>Nilai (Array)</label>
+            @if(is_array($ujian->nilai))
+                @foreach($ujian->nilai as $index => $n)
+                    <input type="number" name="nilai[]" value="{{ old('nilai.' . $index, $n) }}" class="w-full border p-2 rounded mb-2" min="0" max="100" placeholder="Nilai {{ $index + 1 }}">
+                @endforeach
+            @else
+                <input type="number" name="nilai[]" value="{{ old('nilai.0', $ujian->nilai) }}" class="w-full border p-2 rounded" min="0" max="100" placeholder="Nilai 1">
+            @endif
+        </div>
+
+        <div class="mb-3">
+            <label>Komentar (Array)</label>
+            @if(is_array($ujian->komentar))
+                @foreach($ujian->komentar as $index => $k)
+                    <input type="text" name="komentar[]" value="{{ old('komentar.' . $index, $k) }}" class="w-full border p-2 rounded mb-2" placeholder="Komentar {{ $index + 1 }}">
+                @endforeach
+            @else
+                <input type="text" name="komentar[]" value="{{ old('komentar.0') }}" class="w-full border p-2 rounded" placeholder="Komentar 1">
+            @endif
         </div>
 
         <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Update</button>

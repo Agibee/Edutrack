@@ -34,7 +34,7 @@
                 <td class="px-6 py-2">{{ $u->mahasiswa->nama }}</td>
                 <td class="px-6 py-2">{{ $u->kursus->nama_kursus }}</td>
                 <td class="px-6 py-2">{{ $u->nama_ujian }}</td>
-                <td class="px-6 py-2">{{ $u->nilai ?? '-' }}</td>
+                <td class="px-6 py-2">{{ is_array($u->nilai) ? collect($u->nilai)->avg() : $u->nilai ?? '-' }}</td>
                 <td class="px-6 py-2">
                     <a href="{{ route('ujian.show', $u) }}" class="text-indigo-600 hover:text-indigo-900 mr-2">Lihat</a>
                     <a href="{{ route('ujian.edit', $u) }}" class="text-blue-600 hover:text-blue-900 mr-2">Edit</a>

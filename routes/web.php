@@ -8,6 +8,7 @@ use App\Http\Controllers\KursusController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\TugasController;
 use App\Http\Controllers\UjianController;
+use App\Http\Controllers\LaporanController;
 
 // Auth Routes
 Route::middleware(['belum_login'])->group(function () {
@@ -53,6 +54,6 @@ Route::middleware('sudah_login')->group(function () {
     Route::put('ujian/{ujian}', [UjianController::class, 'update'])->name('ujian.update');
     Route::delete('ujian/{ujian}', [UjianController::class, 'destroy'])->name('ujian.destroy');
 
-
+   Route::get('laporan/performa-mahasiswa', [LaporanController::class, 'performaMahasiswa'])->name('laporan.performa_mahasiswa');    Route::get('laporan/export-pdf', [LaporanController::class, 'exportPdf'])->name('laporan.exportPdf');
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 });

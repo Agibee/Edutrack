@@ -38,17 +38,12 @@ class TugasController extends Controller
             'komentar' => 'nullable|string'
         ]);
 
-        // 1 tugas per kursus per mahasiswa
-        $tugas = Tugas::firstOrNew([
-            'mahasiswa_id' => $request->mahasiswa_id,
-            'kursus_id' => $request->kursus_id
-        ]);
+        // Allow multiple tugas per mahasiswa per kursus
+        $tugas = new Tugas();
+        $tugas->mahasiswa_id = $request->mahasiswa_id;
+        $tugas->kursus_id = $request->kursus_id;
 
         if ($request->hasFile('file')) {
-            if ($tugas->file) {
-                Storage::disk('public')->delete($tugas->file);
-            }
-
             $tugas->file = $request->file('file')
                 ->store('tugas', 'public');
         }

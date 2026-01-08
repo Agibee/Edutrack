@@ -30,7 +30,12 @@
 
         <div>
             <label class="block text-sm font-medium text-gray-700">Nilai</label>
-            <p class="mt-1 text-sm text-gray-900">{{ $ujian->nilai ?? '-' }}</p>
+            <p class="mt-1 text-sm text-gray-900">{{ is_array($ujian->nilai) ? collect($ujian->nilai)->avg() : $ujian->nilai ?? '-' }}</p>
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Komentar</label>
+            <p class="mt-1 text-sm text-gray-900">{{ is_array($ujian->komentar) ? implode(', ', $ujian->komentar) : $ujian->komentar ?? '-' }}</p>
         </div>
     </div>
 
