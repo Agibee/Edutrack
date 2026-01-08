@@ -4,25 +4,67 @@
 @section('page-title', 'Detail Project Final')
 
 @section('content')
-<div class="bg-white p-6 rounded shadow max-w-xl">
+<div class="bg-white p-6 rounded-lg shadow-md max-w-2xl mx-auto">
 
-    <p><strong>Mahasiswa:</strong> {{ $tugas->mahasiswa->nama }}</p>
-    <p><strong>Kursus:</strong> {{ $tugas->kursus->nama ?? '-' }}</p>
-    <p><strong>Judul Project:</strong> {{ $tugas->judul }}</p>
-    <p><strong>Nilai:</strong> {{ $tugas->nilai ?? '-' }}</p>
-    <p><strong>Komentar:</strong> {{ $tugas->komentar ?? '-' }}</p>
-    <p>
-        <strong>File:</strong>
-        @if($tugas->file_path)
-            <a href="{{ Storage::url($tugas->file_path) }}" target="_blank" class="text-blue-600 underline">Download</a>
-        @else
-            -
-        @endif
-    </p>
+    <div class="flex justify-between items-center mb-6">
+        <h1 class="text-2xl font-bold text-gray-800">Detail Project Final</h1>
+        <a href="{{ route('tugas.index') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+            Kembali
+        </a>
+    </div>
 
-    <div class="mt-4">
-        <a href="{{ route('tugas.index') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Kembali</a>
-        <a href="{{ route('tugas.edit', $tugas) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Mahasiswa</label>
+            <p class="mt-1 text-sm text-gray-900">{{ $tugas->mahasiswa->nama ?? '-' }}</p>
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Kursus</label>
+            <p class="mt-1 text-sm text-gray-900">{{ $tugas->kursus->nama_kursus ?? '-' }}</p>
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Judul Project</label>
+            <p class="mt-1 text-sm text-gray-900">{{ $tugas->judul }}</p>
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Nilai</label>
+            <p class="mt-1 text-sm text-gray-900">{{ $tugas->nilai ?? '-' }}</p>
+        </div>
+
+        <div class="md:col-span-2">
+            <label class="block text-sm font-medium text-gray-700">Komentar</label>
+            <p class="mt-1 text-sm text-gray-900">{{ $tugas->komentar ?? '-' }}</p>
+        </div>
+
+        <div class="md:col-span-2">
+            <label class="block text-sm font-medium text-gray-700">File Project</label>
+            @if($tugas->file)
+                <p class="mt-1">
+                    <a href="{{ Storage::url($tugas->file) }}" target="_blank" class="text-blue-600 underline">
+                        Download File
+                    </a>
+                </p>
+            @else
+                <p class="mt-1 text-gray-500">-</p>
+            @endif
+        </div>
+    </div>
+
+    <div class="mt-6 flex gap-2">
+        <a href="{{ route('tugas.edit', $tugas) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Edit
+        </a>
+        <form action="{{ route('tugas.destroy', $tugas) }}" method="POST" class="inline">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                onclick="return confirm('Apakah Anda yakin ingin menghapus Project Final ini?')">
+                Hapus
+            </button>
+        </form>
     </div>
 </div>
 @endsection

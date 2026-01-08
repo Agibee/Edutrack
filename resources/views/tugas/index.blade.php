@@ -1,13 +1,13 @@
 @extends('layouts.index')
 
-@section('title', 'Daftar Project Final')
+@section('title', 'Daftar Tugas')
 
 @section('content')
 <div class="bg-white p-6 rounded-lg shadow-md">
     <div class="flex justify-between items-center mb-4">
-        <h1 class="text-2xl font-bold text-gray-800">Daftar Project Final</h1>
+        <h1 class="text-2xl font-bold text-gray-800">Daftar Tugas</h1>
         <a href="{{ route('tugas.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-            Tambah Project Final
+            Tambah Data Tugas
         </a>
     </div>
 
@@ -34,7 +34,7 @@
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">{{ $loop->iteration }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm">{{ $t->mahasiswa->nama }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm">{{ $t->kursus->nama ?? '-' }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm">{{ $t->kursus->nama_kursus ?? '-' }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm">{{ $t->judul }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm">{{ $t->nilai ?? '-' }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm">
@@ -43,7 +43,7 @@
                         <form action="{{ route('tugas.destroy', $t) }}" method="POST" class="inline">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm('Apakah Anda yakin ingin menghapus project final ini?')">Hapus</button>
+                            <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm('Apakah Anda yakin ingin menghapus tugas ini?')">Hapus</button>
                         </form>
                     </td>
                 </tr>

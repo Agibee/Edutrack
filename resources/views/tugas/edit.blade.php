@@ -1,7 +1,7 @@
 @extends('layouts.index')
 
-@section('title', 'Edit Project Final')
-@section('page-title', 'Edit Project Final')
+@section('title', 'Edit Tugas')
+@section('page-title', 'Edit Tugas')
 
 @section('content')
 <div class="bg-white p-6 rounded shadow max-w-xl">
@@ -14,11 +14,14 @@
             <label>Judul Project</label>
             <input type="text" name="judul" value="{{ $tugas->judul }}" class="w-full border p-2 rounded" required>
         </div>
-
+        <div class="mb-3">
+            <label>Nama Kursus</label>
+            <input type="text" name="nama_kursus" value="{{ $tugas->kursus->nama_kursus }}" class="w-full border p-2 rounded" required>
+        </div>
         <div class="mb-3">
             <label>File Project (Opsional, untuk ganti file)</label>
-            @if($tugas->file_path)
-                <p class="mb-2"><a href="{{ Storage::url($tugas->file_path) }}" target="_blank" class="text-blue-600 underline">Download File Lama</a></p>
+            @if($tugas->file)
+                <p class="mb-2"><a href="{{ Storage::url($tugas->file) }}" target="_blank" class="text-blue-600 underline">Download File Lama</a></p>
             @endif
             <input type="file" name="file" class="w-full">
         </div>

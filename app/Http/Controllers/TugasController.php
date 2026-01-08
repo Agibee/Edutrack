@@ -15,7 +15,10 @@ class TugasController extends Controller
         $tugas = Tugas::with(['mahasiswa', 'kursus'])->get();
         return view('tugas.index', compact('tugas'));
     }
-
+    public function show(Tugas $tugas)
+    {
+        return view('tugas.show', compact('tugas'));
+    }
     public function create()
     {
         return view('tugas.create', [
@@ -35,19 +38,19 @@ class TugasController extends Controller
             'komentar' => 'nullable|string'
         ]);
 
-        // 1 project final per kursus per mahasiswa
+        // 1 tugas per kursus per mahasiswa
         $tugas = Tugas::firstOrNew([
             'mahasiswa_id' => $request->mahasiswa_id,
             'kursus_id' => $request->kursus_id
         ]);
 
         if ($request->hasFile('file')) {
-            if ($tugas->file_path) {
-                Storage::disk('public')->delete($tugas->file_path);
+            if ($tugas->file) {
+                Storage::disk('public')->delete($tugas->file);
             }
 
-            $tugas->file_path = $request->file('file')
-                ->store('project_final', 'public');
+            $tugas->file = $request->file('file')
+                ->store('tugas', 'public');
         }
 
         $tugas->judul = $request->judul;
@@ -55,7 +58,7 @@ class TugasController extends Controller
         $tugas->komentar = $request->komentar;
         $tugas->save();
 
-        return redirect()->route('tugas.index')->with('success', 'Project Final berhasil disimpan');
+        return redirect()->route('tugas.index')->with('success', 'Tugas berhasil disimpan');
     }
 
     public function edit(Tugas $tugas)
@@ -77,12 +80,12 @@ class TugasController extends Controller
         ]);
 
         if ($request->hasFile('file')) {
-            if ($tugas->file_path) {
-                Storage::disk('public')->delete($tugas->file_path);
+            if ($tugas->file) {
+                Storage::disk('public')->delete($tugas->file);
             }
 
-            $tugas->file_path = $request->file('file')
-                ->store('project_final', 'public');
+            $tugas->file = $request->file('file')
+                ->store('tugas', 'public');
         }
 
         $tugas->judul = $request->judul;
@@ -90,17 +93,17 @@ class TugasController extends Controller
         $tugas->komentar = $request->komentar;
         $tugas->save();
 
-        return redirect()->route('tugas.index')->with('success', 'Project Final berhasil diupdate');
+        return redirect()->route('tugas.index')->with('success', 'Tugas berhasil diupdate');
     }
 
     public function destroy(Tugas $tugas)
     {
-        if ($tugas->file_path) {
-            Storage::disk('public')->delete($tugas->file_path);
+        if ($tugas->file) {
+            Storage::disk('public')->delete($tugas->file);
         }
 
         $tugas->delete();
 
-        return redirect()->route('tugas.index')->with('success', 'Project Final berhasil dihapus');
+        return redirect()->route('tugas.index')->with('success', 'Tugas berhasil dihapus');
     }
 }

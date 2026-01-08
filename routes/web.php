@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KursusController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\TugasController;
+use App\Http\Controllers\UjianController;
 
 // Auth Routes
 Route::middleware(['belum_login'])->group(function () {
@@ -43,6 +44,15 @@ Route::middleware('sudah_login')->group(function () {
     Route::get('tugas/{tugas}/edit', [TugasController::class, 'edit'])->name('tugas.edit');
     Route::put('tugas/{tugas}', [TugasController::class, 'update'])->name('tugas.update');
     Route::delete('tugas/{tugas}', [TugasController::class, 'destroy'])->name('tugas.destroy');
+
+    Route::get('ujian', [UjianController::class, 'index'])->name('ujian.index');
+    Route::get('ujian/create', [UjianController::class, 'create'])->name('ujian.create');
+    Route::post('ujian/store', [UjianController::class, 'store'])->name('ujian.store');
+    Route::get('ujian/{ujian}/edit', [UjianController::class, 'edit'])->name('ujian.edit');
+    Route::get('ujian/{ujian}', [UjianController::class, 'show'])->name('ujian.show');
+    Route::put('ujian/{ujian}', [UjianController::class, 'update'])->name('ujian.update');
+    Route::delete('ujian/{ujian}', [UjianController::class, 'destroy'])->name('ujian.destroy');
+
 
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 });
