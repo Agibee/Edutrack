@@ -12,6 +12,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('mahasiswa_id')->constrained('mahasiswa')->cascadeOnDelete();
             $table->foreignId('kursus_id')->constrained('kursus')->cascadeOnDelete();
+
+             $table->unique(['mahasiswa_id', 'kursus_id']);
             $table->timestamps();
         });
     }

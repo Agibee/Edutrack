@@ -1,13 +1,16 @@
 <?php
 
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Mahasiswa extends Model
 {
     use HasFactory;
+
     protected $table = 'mahasiswa';
+
     protected $fillable = [
         'nim',
         'nama',
@@ -16,20 +19,26 @@ class Mahasiswa extends Model
         'tanggal_lahir',
         'no_telepon',
     ];
-    
 
-    function kursus()
+    // many-to-many via enrollments
+    public function kursus()
     {
         return $this->belongsToMany(Kursus::class, 'enrollments', 'mahasiswa_id', 'kursus_id');
     }
 
-    function tugas()
+    // direct access to enrollment table
+    public function enrollments()
+    {
+        return $this->hasMany(Enrollment::class, 'mahasiswa_id');
+    }
+
+    public function tugas()
     {
         return $this->hasMany(Tugas::class, 'mahasiswa_id');
     }
+
     public function ujian()
     {
         return $this->hasMany(Ujian::class, 'mahasiswa_id');
     }
-
 }

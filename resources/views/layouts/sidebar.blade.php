@@ -1,4 +1,5 @@
-<aside class="w-64 bg-slate-800 shadow-md hidden md:flex flex-col h-screen">
+<aside class="w-64 min-w-64  bg-slate-800 text-slate-200
+              flex flex-col h-screen">
     <div class="p-6 text-xl font-bold text-slate-200 border-b border-slate-700 flex items-center gap-2">
         <i class="fas fa-book-open text-emerald-400"></i>
         <span>EduTrack</span>
@@ -22,7 +23,7 @@
         </a>
 
         <a href="{{ route('ujian.index') }}" class="block px-4 py-2 rounded text-white hover:bg-gray-300 hover:text-slate-900">
-            <i class="fas fa-upload mr-2"></i> Nilai Ujian
+            <i class="fas fa-file-alt mr-2"></i> Nilai Ujian
         </a>
 
         <a href="{{ route('laporan.performa_mahasiswa') }}" class="block px-4 py-2 rounded text-white hover:bg-gray-300 hover:text-slate-900">
@@ -30,7 +31,9 @@
         </a>
     </nav>
 
-    <div class="mt-auto">
-        @include('layouts.footer')
-    </div>
+     <footer class="mt-auto border-t border-slate-700">
+        <div class="px-6 py-4 text-sm text-slate-400">
+            © {{ date('Y') }} EduTrack. All rights reserved.
+        </div>
+    </footer>
 </aside>

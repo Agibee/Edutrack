@@ -4,9 +4,11 @@
 
 @section('content')
 <div class="bg-white p-6 rounded-lg shadow-md">
+
     <div class="flex justify-between items-center mb-4">
         <h1 class="text-2xl font-bold text-gray-800">Daftar Tugas</h1>
-        <a href="{{ route('tugas.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+        <a href="{{ route('tugas.create') }}"
+           class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
             Tambah Data Tugas
         </a>
     </div>
@@ -17,33 +19,41 @@
         </div>
     @endif
 
-    <div class="overflow-x-auto">
-        <table class="min-w-full bg-white">
-            <thead class="bg-blue-500 text-white">
+    <div class="overflow-x-auto rounded-lg">
+        <table class="min-w-full table-auto text-sm">
+            <thead class="bg-blue-500 text-white sticky top-0 z-10">
                 <tr>
-                    <th class="px-6 py-3 text-left text-xs font-medium uppercase">No</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium uppercase">Mahasiswa</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium uppercase">Kursus</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium uppercase">Judul Project</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium uppercase">Nilai</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium uppercase">Aksi</th>
+                    <th class="px-6 py-3 whitespace-nowrap">No</th>
+                    <th class="px-6 py-3 whitespace-nowrap">Mahasiswa</th>
+                    <th class="px-6 py-3 whitespace-nowrap">Kursus</th>
+                    <th class="px-6 py-3">Judul Project</th>
+                    <th class="px-6 py-3 whitespace-nowrap">Nilai</th>
+                    <th class="px-6 py-3 whitespace-nowrap">Aksi</th>
                 </tr>
             </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
+
+            <tbody class="divide-y divide-gray-200">
                 @foreach($tugas as $t)
-                <tr>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">{{ $loop->iteration }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm">{{ $t->mahasiswa->nama }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm">{{ $t->kursus->nama_kursus ?? '-' }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm">{{ $t->judul }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm">{{ $t->nilai ?? '-' }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm">
-                        <a href="{{ route('tugas.show', $t) }}" class="text-indigo-600 hover:text-indigo-900 mr-2">Lihat</a>
-                        <a href="{{ route('tugas.edit', $t) }}" class="text-blue-600 hover:text-blue-900 mr-2">Edit</a>
+                <tr class="hover:bg-gray-50">
+                    <td class="px-6 py-4 whitespace-nowrap">{{ $loop->iteration }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ $t->mahasiswa->nama }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ $t->kursus->nama_kursus ?? '-' }}</td>
+
+                    <td class="px-6 py-4 max-w-sm wrap-break-word">
+                        {{ $t->judul }}
+                    </td>
+
+                    <td class="px-6 py-4 whitespace-nowrap">{{ $t->nilai ?? '-' }}</td>
+
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <a href="{{ route('tugas.show', $t) }}" class="text-indigo-600 mr-2">Lihat</a>
+                        <a href="{{ route('tugas.edit', $t) }}" class="text-blue-600 mr-2">Edit</a>
                         <form action="{{ route('tugas.destroy', $t) }}" method="POST" class="inline">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm('Apakah Anda yakin ingin menghapus tugas ini?')">Hapus</button>
+                            @csrf @method('DELETE')
+                            <button class="text-red-600"
+                                onclick="return confirm('Hapus tugas ini?')">
+                                Hapus
+                            </button>
                         </form>
                     </td>
                 </tr>
@@ -51,5 +61,6 @@
             </tbody>
         </table>
     </div>
+
 </div>
 @endsection

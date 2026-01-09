@@ -7,21 +7,30 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Kursus extends Model
 {
-    //
     use HasFactory;
+
     protected $table = 'kursus';
+
     protected $fillable = [
         'kode_kursus',
         'nama_kursus',
-        'deskripsi',        
-    ];  
-    function mahasiswa()
+        'deskripsi',
+    ];
+
+    // many-to-many via enrollments
+    public function mahasiswa()
     {
         return $this->belongsToMany(Mahasiswa::class, 'enrollments', 'kursus_id', 'mahasiswa_id');
     }
-      public function tugas()
+
+    // direct access to enrollment table
+    public function enrollments()
     {
-        return $this->hasMany(Tugas::class);
+        return $this->hasMany(Enrollment::class, 'kursus_id');
     }
-    
+
+    public function tugas()
+    {
+        return $this->hasMany(Tugas::class, 'kursus_id');
+    }
 }

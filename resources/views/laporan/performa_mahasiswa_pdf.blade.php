@@ -3,11 +3,25 @@
 <head>
     <title>Laporan Performa Mahasiswa</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        table { width: 100%; border-collapse: collapse; }
-        th, td { border: 1px solid #000; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; }
-        h1 { text-align: center; }
+        body {
+            font-family: DejaVu Sans, sans-serif;
+            font-size: 11px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 6px;
+        }
+
+        th {
+            background-color: #eee;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
